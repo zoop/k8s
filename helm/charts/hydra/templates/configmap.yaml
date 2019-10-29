@@ -12,3 +12,4 @@ data:
     {{- (unset Values.hydra.config dsn)}}
     {{- toYaml . | nindent 4 }}
   {{- end -}}
+
