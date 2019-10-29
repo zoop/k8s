@@ -8,12 +8,8 @@ metadata:
 data:
   "config.yaml": |
   {{- with .Values.hydra.config -}}
-    {{- if .Values.hydra.config.secrets }}
-         {{- (unset .Values.hydra.config "secrets") }}
-    {{- end}}
-    {{- if .Values.hydra.config.secrets.dsn }}
-         {{- (unset .Values.hydra.config "dsn") }}
-    {{- end}}
+    {{- include "mytpl" (unset .Values.hydra.config "secrets") }}
+    {{- include "mytpl" (unset .Values.hydra.config "dsn") }}
     {{- toYaml . | nindent 4 }}
   {{- end -}}
 
