@@ -8,8 +8,8 @@ metadata:
 data:
   "config.yaml": |
   {{- with .Values.hydra.config -}}
-    {{- $issuer := (unset .Values.hydra.config "secrets") -}}
-    {{- $issuer2 := ( unset .Values.hydra.config "dsn") -}}
+    {{ $_ := unset .Values.hydra.config "secrets" }}
+    {{ $_ := unset .Values.hydra.config "dsn" }}
     {{- toYaml . | nindent 4 }}
   {{- end -}}
 
